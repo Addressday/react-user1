@@ -1,44 +1,16 @@
 import * as React from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { randomCreatedDate } from "@material-ui/x-grid-data-generator";
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
 
 
 const columns = [
   { field: "id", headerName: "NO", width: 70 },
-  { field: "keyword", headerName: "키워드", width: 130 },
+  { field: "keyword", headerName: "키워드", width: 100 },
   {
     field: "title",
     headerName: "제목",
     type: "string",
-    width: 400,
+    width: 200,
   },
   {
     field: "created",
@@ -58,7 +30,7 @@ const columns = [
     field: "now_rank",
     headerName: "현재순위",
     type: "number",
-    width: 120,
+    width: 100,
   },
 ];
 
@@ -108,48 +80,16 @@ const rows = [
 
 
 
-export default function DataTable() {
-  const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+export default function Mykeyword() {
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        데이터 입력
-      </p>
-    </div>
-  );
-
-
+ 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        추가
-      </button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-
-      <div style={{ height: 400, width: "100%" }} >
+      <div style={{ height: 400, width: "50%" , margin: '200px auto'}} >
       <DataGrid rows={rows} columns={columns} pageSize={10} />
     </div>
     </div>
+
     
   );
 }

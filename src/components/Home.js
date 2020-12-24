@@ -51,13 +51,13 @@ const columns = [
     field: "title",
     headerName: "제목",
     type: "string",
-    width: 400,
+    width: 200,
   },
   {
     field: "content",
     headerName: "내용",
     type: "string",
-    width: 400,
+    width: 200,
   },
   {
     field: "created",
@@ -116,7 +116,7 @@ const rows = [
 
 const cards = [1];
 
-export default function Home() {
+export default function CurrentKeyword() {
   const classes = useStyles();
 
 
@@ -150,6 +150,7 @@ export default function Home() {
             ))}
           </Grid>
 
+
           <Grid container spacing={6}>
             {cards.map((card) => (
               <Grid item key={card} xs={12}>
@@ -177,25 +178,15 @@ export default function Home() {
         </Container>
 
         <Typography variant="h6" align="center" gutterBottom>
-        최고 상승이 높은 키워드
+        최근 상승이 높은 키워드
       </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        color="textSecondary"
-        component="p"
-      >
-        <div style={{ height: 400 , width: "100%" }}>
+      <div style={{ height: 400, width: "50%" , margin: '30px auto'}}>
           <DataGrid className={classes.tableHead}
             rows={rows}
             columns={columns}
             pageSize={10}
-            checkboxSelection
           />
         </div>
-      </Typography>
-
-
       </main>
 
 

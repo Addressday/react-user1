@@ -9,7 +9,7 @@ const columns = [
     field: "title",
     headerName: "제목",
     type: "string",
-    width: 400,
+    width: 200,
   },
   {
     field: "created",
@@ -76,7 +76,7 @@ const rows = [
   },
 ];
 
-export default function DataTable() {
+export default function MykeywordCreate() {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid rows={rows} columns={columns} pageSize={10} checkboxSelection />

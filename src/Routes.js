@@ -1,15 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
-import NotFound from './components/NotFound'
-import Signin from './components/Signin'
-import Signup from './components/Signup'
-import Myinfo from './components/Myinfo'
-import Mykeyword from './components/Mykeyword'
-import MykeywordGroup from './components/MykeywordGroup'
-import ForgotPassword from './components/ForgotPassword'
-import MykeywordCreate from './components/MykeywordCreate'
-import MykeywordGroupCreate from './components/MykeywordGroupCreate'
+import NotFound from "./components/NotFound";
+import Signin from "./components/user/Signin";
+import Signup from "./components/user/Signup";
+import Myinfo from "./components/user/Myinfo";
+import Mykeyword from "./components/keyword/Mykeyword";
+import Mygroup from "./components/keyword/Mygroup";
+import ForgotPassword from "./components/user/ForgotPassword";
+import ForgotId from "./components/user/ForgotId";
 
 export default function Routes() {
   return (
@@ -17,33 +16,30 @@ export default function Routes() {
       <Route exact path="/">
         <Home />
         <NotFound />
-        </Route>
-        <Route path="/mykeyword">
+      </Route>
+      <Route path="/mykeyword">
         <Mykeyword />
-        </Route>
-        <Route path="/mykeyword_group">
-        <MykeywordGroup />
-        </Route>
+      </Route>
+      <Route path="/mygroup">
+        <Mygroup />
+      </Route>
 
-        <Route path="/mykeyword_create">
-        <MykeywordCreate />
-        </Route>
-        <Route path="/mykeyword_group_create">
-        <MykeywordGroupCreate />
-        </Route>
-
-        <Route path="/myinfo">
+      <Route path="/myinfo">
         <Myinfo />
-        </Route>
-        <Route path="/signin">
+      </Route>
+      <Route path="/signin">
         <Signin />
-        </Route>
-        <Route path="/signup">
+      </Route>
+      <Route path="/signup">
         <Signup />
       </Route>
+
       <Route path="/forgot_password">
-      <ForgotPassword />
-    </Route>
+        <ForgotPassword />
+      </Route>
+      <Route path="/forgot_id">
+        <ForgotId />
+      </Route>
     </Switch>
   );
 }
